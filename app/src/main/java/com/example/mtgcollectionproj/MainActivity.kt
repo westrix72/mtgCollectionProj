@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Hey!",
-                        message = "This is you app.",
+                        message = "This is you collection.",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -45,20 +45,25 @@ fun Greeting(name: String, message: String, modifier: Modifier = Modifier) {
         modifier = modifier
     ) {
         Text(
-            text = "Hello $name!",
-            fontSize = 100.sp,
-            lineHeight = 116.sp,
+            text = "$name",
+            fontSize = 40.sp,
+            lineHeight = 40.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(8.dp)
         )
         Text(
             text = "$message",
-            fontSize = 36.sp,
+            fontSize = 20.sp,
             modifier = Modifier
-                .padding(16.dp)
-                .align(alignment = androidx.compose.ui.Alignment.End)
+                .padding(8.dp)
+                .align(alignment = androidx.compose.ui.Alignment.Start)
         )
     }
+}
+
+@Composable
+fun BackgroundImage(name: String, message: String, modifier: Modifier = Modifier) {
+
 }
 
 @Preview(
@@ -68,6 +73,6 @@ fun Greeting(name: String, message: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     MtgCollectionProjTheme {
-        Greeting("Fill", "This is your app!")
+        Greeting("Hey!", "This is your collection!")
     }
 }
