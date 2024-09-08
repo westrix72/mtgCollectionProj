@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -37,8 +38,8 @@ class MainActivity : ComponentActivity() {
             MtgCollectionProjTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     BackgroundImage(
-                        name = "Hey!",
-                        message = "This is you collection.",
+                        name = stringResource(R.string.hey),
+                        message = stringResource(R.string.this_is_you_collection),
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -78,7 +79,10 @@ fun BackgroundImage(name: String, message: String, modifier: Modifier = Modifier
     val imageModifier = Modifier
         .border(BorderStroke(1.dp, Color.Black))
         .background(Color.Black)
-    Box(Modifier.fillMaxSize().background(Color.Black)) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(Color.Black)) {
         //This image is doing nothing, but in the future it will.
         Image(
             painter = image,
@@ -103,6 +107,6 @@ fun BackgroundImage(name: String, message: String, modifier: Modifier = Modifier
 @Composable
 fun GreetingPreview() {
     MtgCollectionProjTheme {
-        BackgroundImage("Hey!", "This is your collection!!!")
+        BackgroundImage(stringResource(R.string.hey), stringResource(R.string.this_is_you_collection))
     }
 }
